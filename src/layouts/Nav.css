@@ -8,5 +8,10 @@
     margin: 0 !important;
     padding: 0 !important;
     height: 40px !important;
-    width: 150px
+    width: 130px
+}
+
+#logo1-img {
+    height: 70px !important;
+    width: 200px
 }
