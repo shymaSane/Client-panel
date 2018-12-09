@@ -14,6 +14,18 @@ import {Link} from 'react-router-dom'
         </button>
   
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </li>
+          </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link text-black " to="/users/signin"><button className="btn btn-sm btn-outline-danger">Sign In</button></Link>

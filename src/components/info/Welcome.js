@@ -9,7 +9,7 @@ function Welcome() {
             <p class="lead">This app ll help you to maintain, add, delete, save client information and use any time you need it.</p>
             <hr class="my-4"></hr>
             <p> Start the great experince here.</p>
-            <Link class="btn btn-danger btn-lg mr-2" to="/user/signin" role="button">Sign In</Link>
+            <Link class="btn btn-danger btn-lg mr-2" to="/users/signin" role="button">Sign In</Link>
             <Link class="btn btn-danger btn-lg" to="/users/signup" role="button">Sign Up</Link>
         </div>
     </div>
