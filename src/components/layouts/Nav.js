@@ -1,5 +1,6 @@
 import React from 'react';
-import './Nav.css'
+import './Nav.css';
+import {Link} from 'react-router-dom'
 
  function Nav() {
   return (
@@ -15,10 +16,10 @@ import './Nav.css'
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link text-black " href="#"><button className="btn btn-sm btn-outline-danger">Sign In</button></a>
+              <Link className="nav-link text-black " to="/users/signin"><button className="btn btn-sm btn-outline-danger">Sign In</button></Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-black " href="#"><button className="btn btn-sm btn-outline-secondary">Sign  Up</button></a>
+              <Link className="nav-link text-black " to="/users/signup"><button className="btn btn-sm btn-outline-secondary">Sign  Up</button></Link>
             </li>
           </ul>
         </div>
