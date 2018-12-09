@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './layouts/Nav';
-import SignIn from './auth/SignIn'
+import Nav from './components/layouts/Nav';
+import SignIn from './components/auth/SignIn'
 
 
 class App extends Component {

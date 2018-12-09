@@ -5,7 +5,7 @@ class SignIn extends Component {
     return (
     <div className="container d-flex justify-content-center mt-5">
         <div className = "col-md-5 col-sm-11">
-            <div className="card bg-secondary">
+            <div className="card bg-secondary border-danger">
                 <div className="card-header bg-light text-center">
                     <img src="/img/logo.png"  alt="logo image" id="logo1-img"></img>
                 </div>
