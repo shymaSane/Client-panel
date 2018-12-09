@@ -1,0 +1,12 @@
+.navbar
+{
+    border-bottom:1px solid grey !important;
+    padding : 1px !important;
+}
+
+#logo-img {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 40px !important;
+    width: 150px
+}
