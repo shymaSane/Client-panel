@@ -32,13 +32,35 @@ import Client from './Client'
     render() {
          const {clients} = this.state
         return (
-            <div>
-                {clients.map(client => <Client 
-                    key={client.id}
-                    name={client.name}
-                    email={client.email}
-                    balance={client.balance}
-                />)}
+            <div className="container my-md-5 mx-md-5 ">
+            <div className = "col-md-8 col-sm-11">
+                <div className='row d-flex justify-content-between'>
+                    <h2 className="text-danger">Clients</h2>
+                    <button className="btn btn-success">+ New</button>
+                </div>
+                <div className="row">
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">balance</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {clients.map(client => <Client 
+                                key={client.id}
+                                name={client.name}
+                                email={client.email}
+                                balance={client.balance}
+                            />)} 
+                        </tbody>
+                    </table>
+                
+                    </div>
+                </div>
             </div>
         ) 
     }
