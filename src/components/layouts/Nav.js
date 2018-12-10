@@ -25,6 +25,11 @@ import {Link} from 'react-router-dom'
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard">
+                Dashboard
+              </Link>
+            </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
