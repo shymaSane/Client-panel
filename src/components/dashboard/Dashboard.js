@@ -36,7 +36,7 @@ import Client from './Client'
             <div className = "col-md-8 col-sm-11">
                 <div className='row d-flex justify-content-between'>
                     <h2 className="text-danger">Clients</h2>
-                    <button className="btn btn-success">+ New</button>
+                    <button className="btn btn-success my-1">+ New</button>
                 </div>
                 <div className="row">
                     <table className="table table-striped">

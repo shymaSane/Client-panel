@@ -7,7 +7,7 @@ class SignIn extends Component {
         <div className = "col-md-5 col-sm-11">
             <div className="card bg-secondary border-danger">
                 <div className="card-header bg-light text-center">
-                    <img src="/img/logo.png"  alt="logo image" id="logo1-img"></img>
+                    <img src="/img/logo.png"  alt="logo" id="logo1-img"></img>
                 </div>
                 <div className="card-body">
                     <form>

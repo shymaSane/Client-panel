@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
     <nav className="navbar bg-light navbar-light navbar-expand-md">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src="/img/logo.png" alt="logo image" id="logo-img"></img>
+          <img src="/img/logo.png" alt="logo" id="logo-img"></img>
         </Link>
         <button className="navbar-toggler btn btn-outline-danger mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon btn btn-outline-danger btn-sm"></span>
