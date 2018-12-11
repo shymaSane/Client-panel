@@ -6,13 +6,15 @@ import Welcome from './components/info/Welcome';
 import About from './components/info/About';
 import NotFound from './components/info/NotFound';
 import Dashboard from './components/dashboard/Dashboard'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import store from './store'
+import {Provider} from 'react-redux'
 
 
 class App extends Component {
   render() {
     return (
-      
+      <Provider store={store}>
         <Router>
           <div className="App">
             <Nav />
@@ -26,7 +28,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-     
+      </Provider>
     );
   }
 }
