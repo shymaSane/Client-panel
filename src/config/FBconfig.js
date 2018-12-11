@@ -14,6 +14,6 @@ messagingSenderId: "81863483064"
 
 firebase.initializeApp(config);
 //this for the warnings in cosoule, it can be annoying
-firebase.firestore().settings({timestampsInSnapshots: ture})
+firebase.firestore().settings({timestampsInSnapshots: true})
 
 export default firebase;

@@ -1,36 +1,14 @@
 import React, { Component } from 'react';
-import Client from './Client'
+import Client from './Client';
+import {connect} from 'react-redux'
+import {getClients} from '../../actions/actionCreators'
 
  class Dashboard extends Component {
-    state = {
-        clients: [
-          {
-              id: 1,
-              name: "shyam abed alaziz",
-              phone: '22-222-222',
-              email: "noshima100@gmail.com",
-              balance: 14
-          },
-          {
-          id: 2,
-          name: "jomana abed alaziz",
-          phone: '22-222-222',
-          email: "jomana100@gmail.com",
-          balance: 500
-          },
-          {
-              id: 3,
-              name: "rahmah abed alaziz",
-              phone: '22-222-222',
-              email: "rahmah100@gmail.com",
-              balance: 4030
-          }
-
-        ]
-
+    componentWillMount(){
+        this.props.getClients()
     }
     render() {
-         const {clients} = this.state
+         const {clients} = this.props
         return (
             <div className="container my-md-5 mx-md-5 ">
             <div className = "col-md-8 col-sm-11">
@@ -66,4 +44,12 @@ import Client from './Client'
     }
 }
 
-export default Dashboard
+const mapStateToProps = (state) =>{
+    return {
+        clients: state.client.clients
+    }
+}
+   
+
+
+export default connect(mapStateToProps, {getClients})(Dashboard)
