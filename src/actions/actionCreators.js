@@ -8,7 +8,7 @@ export const getClients = () => dispatch => {
     .onSnapshot((querySnapshot) => {
         let clients = []
         querySnapshot.forEach((doc) => {
-            clients.push(doc.data())
+            clients.push({ ...doc.data(), id: doc.id})
         })
         dispatch({
             type: GET_CLIENTS,
