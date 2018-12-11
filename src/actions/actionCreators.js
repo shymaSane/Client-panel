@@ -3,18 +3,18 @@ import firebase from '../config/FBconfig'
 
 
 export const getClients = () => dispatch => {
-    let clients = []
-    firebase.firestore().collection('dashboard').get()
-    .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
+    
+    firebase.firestore().collection('dashboard')
+    .onSnapshot((querySnapshot) => {
+        let clients = []
+        querySnapshot.forEach((doc) => {
             clients.push(doc.data())
-           
         })
-    })
-    .then(() =>{
         dispatch({
             type: GET_CLIENTS,
             payload: clients
-        })
-    })
+        }) 
+        console.log(clients)
+    })     
+    
 }

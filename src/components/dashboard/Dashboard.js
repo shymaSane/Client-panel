@@ -46,7 +46,7 @@ import {getClients} from '../../actions/actionCreators'
 
 const mapStateToProps = (state) =>{
     return {
-        clients: state.client.clients
+        clients: state.client.clients 
     }
 }
    
