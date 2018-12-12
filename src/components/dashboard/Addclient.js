@@ -32,7 +32,7 @@ class AddClient extends Component {
       email,
       balance
     }
-
+    console.log(client)
     //add client to firestore
     this.props.addClient(client)
     //empty fileds

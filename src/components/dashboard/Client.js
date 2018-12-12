@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
         <td>{name}</td>
         <td>{email}</td>
         <td>{balance}</td>
-        <td><a className="btn btn-secondary" role="button" href="/">Detailes</a></td>
+        <td><a className="btn btn-danger" role="button" href="/">Detailes</a></td>
         </tr>
 )
   }
@@ -30,7 +30,7 @@ import PropTypes from 'prop-types';
 Client.propTypes ={
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  balance: PropTypes.number.isRequired
+  balance: PropTypes.string.isRequired
 }
 
 export default Client

@@ -4,7 +4,7 @@ import firebase from '../config/FBconfig'
 
 export const getClients = () => dispatch => {
     
-    firebase.firestore().collection('dashboard')
+    firebase.firestore().collection('dashboard').orderBy('name')
     .onSnapshot((querySnapshot) => {
         let clients = []
         querySnapshot.forEach((doc) => {

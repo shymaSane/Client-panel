@@ -17,10 +17,10 @@ import {Link} from 'react-router-dom'
             <div className = "col-md-8 col-sm-11">
                 <div className='row d-flex justify-content-between'>
                     <h2 className="text-danger">Clients</h2>
-                    <Link className="btn btn-success my-1" role="button" to="/client/add">+ New</Link>
+                    <Link className="btn btn-success my-1 px-5" role="button" to="/client/add">+ New</Link>
                 </div>
                 <div className="row">
-                    <table className="table table-striped">
+                    <table className="table table-striped table-danger text-dark">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -37,6 +37,13 @@ import {Link} from 'react-router-dom'
                                 email={client.email}
                                 balance={client.balance}
                             />)} 
+                        </tbody>
+                        <tbody>
+                            <tr scope ="row">
+                                <td colspan="5" className= "text-danger">
+                                    <strong>TOTAL:</strong>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 
