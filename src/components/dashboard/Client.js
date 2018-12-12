@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
         <td>{name}</td>
         <td>{email}</td>
         <td>{balance}</td>
-        <td><button className="btn btn-secondary">Detailes</button></td>
+        <td><a className="btn btn-secondary" role="button" href="/">Detailes</a></td>
         </tr>
 )
   }

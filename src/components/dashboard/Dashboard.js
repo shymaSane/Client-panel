@@ -3,7 +3,7 @@ import Client from './Client';
 import {connect} from 'react-redux'
 import {getClients} from '../../actions/actionCreators'
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom'
 
 
  class Dashboard extends Component {
@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
             <div className = "col-md-8 col-sm-11">
                 <div className='row d-flex justify-content-between'>
                     <h2 className="text-danger">Clients</h2>
-                    <button className="btn btn-success my-1">+ New</button>
+                    <Link className="btn btn-success my-1" role="button" to="/client/add">+ New</Link>
                 </div>
                 <div className="row">
                     <table className="table table-striped">
