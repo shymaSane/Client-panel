@@ -1,10 +1,10 @@
-import {GET_CLIENTS, ADD_CLIENT, DELETE_CLIENT, EDIT_CLIENT, UPDATE_CLIENT } from './types'
+import {GET_CLIENTS, GET_CLIENT} from './types'
 import firebase from '../config/FBconfig'
 
 
 export const getClients = () => dispatch => {
     
-    firebase.firestore().collection('dashboard').orderBy('name')
+    firebase.firestore().collection('dashboard').orderBy('balance')
     .onSnapshot((querySnapshot) => {
         let clients = []
         querySnapshot.forEach((doc) => {
@@ -22,4 +22,11 @@ export const getClients = () => dispatch => {
 export const addClient = (client) => dispatch => {
     firebase.firestore().collection('dashboard').add(client)
     .then((docRef) => console.log(docRef))
+}
+
+export const getClient = (id) => dispatch =>{
+    firebase.firestore().collection("dashboard").doc(id)
+    .onSnapshot(function(doc) {
+        console.log("Current data: ", doc.data());
+    });
 }

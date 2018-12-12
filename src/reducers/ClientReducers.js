@@ -1,7 +1,8 @@
-import {GET_CLIENTS, ADD_CLIENT, DELETE_CLIENT, EDIT_CLIENT, UPDATE_CLIENT } from '../actions/types'
+import {GET_CLIENTS, GET_CLIENT} from '../actions/types'
 
 const initialState = {
-    clients: []
+    clients: [],
+    client:{}
 }
 
 export default function (state = initialState, action) {
@@ -10,6 +11,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 clients: action.payload
+            }
+        case GET_CLIENT:
+            return{
+                ...state,
+                client: action.payload
             }
         default:
             return state

@@ -36,6 +36,7 @@ import {Link} from 'react-router-dom'
                                 name={client.name}
                                 email={client.email}
                                 balance={client.balance}
+                                id={client.id}
                             />)} 
                         </tbody>
                         <tbody>

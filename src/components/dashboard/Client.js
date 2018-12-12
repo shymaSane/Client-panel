@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 
  class Client extends Component {
@@ -12,15 +13,15 @@ import PropTypes from 'prop-types';
       })
    }
   render() {
-    const {name, email, balance} = this.props
-  
+    const {name, email, balance, id} = this.props
+    
     return (
         <tr>
-        <th scope="row">{this.state.counter}</th>
+        <th scope="row"></th>
         <td>{name}</td>
         <td>{email}</td>
         <td>{balance}</td>
-        <td><a className="btn btn-danger" role="button" href="/">Detailes</a></td>
+        <td><Link className="btn btn-danger" role="button" to={`/client/detailes/${id}`}>Detailes</Link></td>
         </tr>
 )
   }
