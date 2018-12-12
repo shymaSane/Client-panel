@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Client from './Client';
 import {connect} from 'react-redux'
 import {getClients} from '../../actions/actionCreators'
+import PropTypes from 'prop-types';
+
+
 
  class Dashboard extends Component {
     componentWillMount(){
@@ -43,6 +46,10 @@ import {getClients} from '../../actions/actionCreators'
         ) 
     }
 }
+
+Dashboard.propTypes = {
+    clients: PropTypes.array.isRequired
+};
 
 const mapStateToProps = (state) =>{
     return {

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
  class Client extends Component {
    state = {
@@ -23,6 +24,13 @@ import React, { Component } from 'react'
         </tr>
 )
   }
+}
+
+
+Client.propTypes ={
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  balance: PropTypes.number.isRequired
 }
 
 export default Client
