@@ -14,7 +14,12 @@ export const getClients = () => dispatch => {
             type: GET_CLIENTS,
             payload: clients
         }) 
-        console.log(clients)
+        
     })     
     
+}
+
+export const addClient = (client) => dispatch => {
+    firebase.firestore().collection('dashboard').add(client)
+    .then((docRef) => console.log(docRef))
 }
