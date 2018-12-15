@@ -26,7 +26,10 @@ export const addClient = (client) => dispatch => {
 
 export const getClient = (id) => dispatch =>{
     firebase.firestore().collection("dashboard").doc(id)
-    .onSnapshot(function(doc) {
-        console.log("Current data: ", doc.data());
-    });
+    .onSnapshot((doc) => 
+        dispatch({
+            type: GET_CLIENT,
+            payload: doc.data()
+        })
+    )
 }
