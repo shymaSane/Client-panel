@@ -6,7 +6,7 @@ class SignIn extends Component {
     <div className="container d-flex justify-content-center mt-5">
         <div className = "col-md-5 col-sm-11">
             <div className="card bg-light text-dark">
-                <div className="card-header  text-center">
+                <div className="card-header text-center">
                     <h4>SIGN IN <span className="text-warning">CLIENT PANEL</span></h4>
                 </div>
                 <div className="card-body">
