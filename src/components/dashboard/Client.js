@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
         <td>{name}</td>
         <td>{email}</td>
         <td>{balance}</td>
-        <td><Link className="btn btn-danger" role="button" to={`/client/detailes/${id}`}>Detailes</Link></td>
+        <td><Link className="btn btn-warning" role="button" to={`/client/detailes/${id}`}>Detailes</Link></td>
         </tr>
 )
   }

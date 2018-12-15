@@ -15,9 +15,9 @@ class Detailes extends Component {
       <div>
         <div className="container d-flex justify-content-center mt-5">
             <div className = "col-md-8 col-sm-11">
-                <div className="card bg-light text-dark border-danger">
+                <div className="card bg-light">
                     <div className="card-header bg-light text-center">
-                        <h3 className= "text-secondary">{client.name}</h3>
+                        <h3 className= "text-dark">{client.name}</h3>
                     </div>
                     <div className="card-body">
                         <div className="d-flex justify-content-between">

@@ -1,14 +1,14 @@
 .navbar
 {
-    border-bottom:1px solid grey !important;
+    
     padding : 1px !important;
 }
 
 #logo-img {
     margin: 0 !important;
     padding: 0 !important;
-    height: 40px !important;
-    width: 130px
+    height: 30px !important;
+    width: 160px
 }
 
 #logo1-img {

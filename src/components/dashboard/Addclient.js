@@ -45,9 +45,9 @@ class AddClient extends Component {
     return (
       <div className="container d-flex justify-content-center mt-5">
         <div className = "col-md-8 col-sm-11">
-            <div className="card bg-light text-dark border-danger">
-                <div className="card-header bg-light text-center">
-                    <h3 className= "text-secondary"> Add Client</h3>
+            <div className="card bg-light text-dark">
+                <div className="card-header text-center">
+                <h4 className="text-dark">ADD <span className="text-warning">CLIENT</span></h4>
                 </div>
                 <div className="card-body">
                     <form onSubmit={this.onSubmit}>
@@ -71,7 +71,7 @@ class AddClient extends Component {
                             <input type="number" className="form-control" id="balance" name="balance" placeholder="Enter balance" value={balance} onChange={this.handleChange}></input>
                             
                         </div>
-                        <button type="submit" className="btn btn-danger btn-block">Add Client</button>
+                        <button type="submit" className="btn btn-outline-dark btn-block">Add Client</button>
                     </form>
                 </div>
             </div>

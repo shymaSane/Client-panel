@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
  function Nav() {
   return (
-    <nav className="navbar bg-light navbar-light navbar-expand-md">
+    <nav className="navbar bg-dark navbar-dark navbar-expand-md">
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src="/img/logo.png" alt="logo" id="logo-img"></img>
@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom'
         </button>
   
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
@@ -33,10 +33,10 @@ import {Link} from 'react-router-dom'
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link text-black " to="/users/signin"><button className="btn btn-sm btn-outline-danger">Sign In</button></Link>
+              <Link className="nav-link text-black " to="/users/signin"><button className="btn btn-sm btn-outline-warning">Sign In</button></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-black " to="/users/signup"><button className="btn btn-sm btn-outline-secondary">Sign  Up</button></Link>
+              <Link className="nav-link text-black " to="/users/signup"><button className="btn btn-sm btn-outline-warning">Sign  Up</button></Link>
             </li>
           </ul>
         </div>
