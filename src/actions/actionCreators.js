@@ -1,4 +1,4 @@
-import {GET_CLIENTS, GET_CLIENT} from './types'
+import {GET_CLIENTS, GET_CLIENT, UPDATE_CLIENT} from './types'
 import firebase from '../config/FBconfig'
 
 
@@ -19,7 +19,7 @@ export const getClients = () => dispatch => {
     
 }
 
-export const addClient = (client) => dispatch => {
+export const addClient = (client) => () => {
     firebase.firestore().collection('dashboard').add(client)
     .then((docRef) => console.log(docRef))
 }
@@ -32,4 +32,11 @@ export const getClient = (id) => dispatch =>{
             payload: doc.data()
         })
     )
+}
+
+export const updateClient = (client, id) => () => {
+    firebase.firestore().collection("dashboard").doc(id)
+    .update({
+        ...client
+    })
 }

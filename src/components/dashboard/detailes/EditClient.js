@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {updateClient} from '../../../actions/actionCreators'
 
  class EditClient extends Component {
     state ={
@@ -11,6 +12,8 @@ import React, { Component } from 'react'
     }
 
    componentWillReceiveProps(nextProps){
+
+      //submit previous information to the form
       const {name, phone, email, balance, id} = nextProps.client
       this.setState({
         name,
@@ -22,11 +25,38 @@ import React, { Component } from 'react'
    }
 
    onChange = (e) =>{
+      //make form writable
       this.setState({
         [e.target.name] : e.target.value
       })
+   }
 
-      console.log(e.target.name)
+   onSubmit = (e) =>{
+     e.preventDefault()
+     
+    //get updates from form
+    const {name, phone, email, balance, id} = this.state
+     console.log(id)
+     const updatedClient = {
+      name,
+      phone,
+      email,
+      balance,
+     
+    }
+
+    //update firstore
+    this.props.updateClient(updatedClient, id)
+    //clean fields 
+    this.setState({
+      name: '',
+      phone: '',
+      email: '',
+      balance: '',
+      id: ''
+    })
+    //redirect
+    this.context.history.push('/')
    }
 
   render() {
@@ -34,14 +64,14 @@ import React, { Component } from 'react'
     return (
             <div className="card bg-light text-dark">
               <div className="card-body">
-                <form>
+                <form onSubmit = {this.onSubmit}>
                   <div className="form-group">
                       <input type="text" className="form-control" id="name" name="name" value={name} onChange={this.onChange}></input>
                   </div>
                   <div className="form-row">
                       <div className="col-9 form-group">
                         <label htmlFor="id">ClientID:</label>
-                        <input type="text" className="form-control" name="id" value={id} onChange={this.onChange}></input>
+                        <input type="text" className="form-control" name="id" value={id}></input>
                       </div>
                       <div className="col-3 form-group">
                         <label htmlFor="balance">Balance:</label>
@@ -65,4 +95,4 @@ import React, { Component } from 'react'
   }
 }
 
-export default (EditClient)
+export default connect(null, {updateClient})(EditClient)
