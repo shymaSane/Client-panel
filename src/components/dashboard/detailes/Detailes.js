@@ -28,6 +28,7 @@ class Detailes extends Component {
                     </div>
                 </div>
                 <ClientDetailes client={client} id={id}/>
+                <EditClient client = {{...client, id}}/>
             </div>
         </div>
       </div>
