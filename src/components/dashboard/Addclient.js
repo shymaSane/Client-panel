@@ -68,7 +68,7 @@ class AddClient extends Component {
                         </div>
                         <div className="form-group">
                             <label htmlFor="balance">Balance:</label>
-                            <input type="number" className="form-control" id="balance" name="balance" placeholder="Enter balance" value={balance} onChange={this.handleChange}></input>
+                            <input type="text" className="form-control" id="balance" name="balance" placeholder="Enter balance" value={balance} onChange={this.handleChange}></input>
                             
                         </div>
                         <button type="submit" className="btn btn-outline-dark btn-block">Add Client</button>

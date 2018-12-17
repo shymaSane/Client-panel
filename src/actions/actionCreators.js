@@ -1,4 +1,4 @@
-import {GET_CLIENTS, GET_CLIENT, UPDATE_CLIENT} from './types'
+import {GET_CLIENTS, GET_CLIENT} from './types'
 import firebase from '../config/FBconfig'
 
 

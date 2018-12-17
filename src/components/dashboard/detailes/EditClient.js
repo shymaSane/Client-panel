@@ -13,10 +13,9 @@ import { withRouter } from "react-router";
       id: ''
     }
 
-   componentWillReceiveProps(nextProps){
-
+    componentDidMount () {
       //submit previous information to the form
-      const {name, phone, email, balance, id} = nextProps.client
+      const {name, phone, email, balance, id} = this.props.client
       this.setState({
         name,
         phone,
@@ -24,7 +23,7 @@ import { withRouter } from "react-router";
         balance,
         id
       })
-   }
+    }
 
    onChange = (e) =>{
       //make form writable
@@ -62,7 +61,7 @@ import { withRouter } from "react-router";
    }
 
   render() {
-      console.log(this.props)
+  
       const {name, phone, email, balance, id} = this.state
     return (
             <div className="card bg-light text-dark">

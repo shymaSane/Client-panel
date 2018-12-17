@@ -41,7 +41,7 @@ import {Link} from 'react-router-dom'
                         </tbody>
                         <tbody>
                             <tr scope ="row">
-                                <td colspan="5" className= "text-danger">
+                                <td colSpan="5" className= "text-danger">
                                     <strong>TOTAL:</strong>
                                 </td>
                             </tr>

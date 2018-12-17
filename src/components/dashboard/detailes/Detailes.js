@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 
 
 class Detailes extends Component {
+    state = {
+        toggle: true
+    }
 
     componentWillMount(){
         const {id} = this.props.match.params
@@ -18,6 +21,12 @@ class Detailes extends Component {
         const {id} = this.props.match.params
         this.props.deleteClient(id)
         this.props.history.push('/dashboard')
+    }
+
+    onToggle = () =>{
+        this.setState((state) => ({
+            toggle: !state.toggle
+        }))
     }
 
   render() {
@@ -31,12 +40,13 @@ class Detailes extends Component {
                 <div className="my-3 d-flex justify-content-between">
                     <Link to="/dashboard" className="text-dark"><i className="fas fa-backward text-warning"></i> <strong>Back</strong></Link>
                     <div>
-                        <button className="btn btn-dark">EDIT</button>
+                        <button className="btn btn-dark" onClick={this.onToggle}>EDIT</button>
                         <button className="btn btn-warning" onClick={this.deleteCurrentClient}>DELETE</button>
                     </div>
                 </div>
-                <ClientDetailes client={client} id={id}/>
-                <EditClient client = {{...client, id, ...this.props}}/>
+                {this.state.toggle? <ClientDetailes client={client} id={id}/> : <EditClient client = {{...client, id}}/>}
+                
+                
             </div>
         </div>
       </div>
