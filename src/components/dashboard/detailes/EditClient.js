@@ -21,37 +21,46 @@ import React, { Component } from 'react'
       })
    }
 
+   onChange = (e) =>{
+      this.setState({
+        [e.target.name] : e.target.value
+      })
+
+      console.log(e.target.name)
+   }
+
   render() {
       const {name, phone, email, balance, id} = this.state
     return (
-          <form>
             <div className="card bg-light text-dark">
-                <div className="card-header text-center form-group">
-                <input type="text" className="form-control" id="name" name="name" value={name}></input>
-                </div>
-                <div className="card-body">
+              <div className="card-body">
+                <form>
+                  <div className="form-group">
+                      <input type="text" className="form-control" id="name" name="name" value={name} onChange={this.onChange}></input>
+                  </div>
                   <div className="form-row">
-                      <div className="col-9">
+                      <div className="col-9 form-group">
                         <label htmlFor="id">ClientID:</label>
-                        <input type="text" className="form-control" value={id}></input>
+                        <input type="text" className="form-control" name="id" value={id} onChange={this.onChange}></input>
                       </div>
-                      <div className="col-3">
+                      <div className="col-3 form-group">
                         <label htmlFor="balance">Balance:</label>
-                        <input type="text" className="form-control" value={balance}></input>
+                        <input type="text" className="form-control" name="balance" value={balance} onChange={this.onChange}></input>
                       </div>
                   </div>
                       <div className="form-group">
                           <label htmlFor="phone">Client Phone:</label>
-                          <input type="text" className="form-control" id="phone" name="phone" value={phone}></input>
+                          <input type="text" className="form-control" id="phone" name="phone" value={phone} onChange={this.onChange}></input>
                       </div>
                       <div className="form-group">
                           <label htmlFor="email">Client email:</label>
-                          <input type="email" className="form-control" id="email" name="email" value={email}></input>
+                          <input type="email" className="form-control" id="email" name="email" value={email} onChange={this.onChange}></input>
                       </div>
                       <button type="submit" className="btn btn-outline-dark btn-block">Update</button>
+                    </form>
                 </div>
             </div>
-        </form>
+        
     )
   }
 }
