@@ -4,9 +4,17 @@ import {getClient} from '../../../actions/actionCreators';
 import {Link} from 'react-router-dom';
 import ClientDetailes from './ClientDetailes';
 import EditClient from './EditClient';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { withRouter } from "react-router";
 
 class Detailes extends Component {
+
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+      }
+
     componentWillMount(){
         const {id} = this.props.match.params
         this.props.getClient(id)
@@ -14,7 +22,6 @@ class Detailes extends Component {
   render() {
     const {client} = this.props
     const {id} = this.props.match.params
-    
     return (
         
       <div>
@@ -28,7 +35,7 @@ class Detailes extends Component {
                     </div>
                 </div>
                 <ClientDetailes client={client} id={id}/>
-                <EditClient client = {{...client, id}}/>
+                <EditClient client = {{...client, id, ...this.props}}/>
             </div>
         </div>
       </div>
@@ -44,4 +51,4 @@ const mapStateToProps = (state) => ({
     client: state.client.client
 })
 
-export default connect(mapStateToProps,{getClient})(Detailes)
+export default withRouter(connect(mapStateToProps,{getClient})(Detailes))

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {updateClient} from '../../../actions/actionCreators'
+import {updateClient} from '../../../actions/actionCreators';
+import PropTypes from 'prop-types';
+import { withRouter } from "react-router";
 
  class EditClient extends Component {
     state ={
@@ -56,10 +58,11 @@ import {updateClient} from '../../../actions/actionCreators'
       id: ''
     })
     //redirect
-    this.context.history.push('/')
+    this.props.history.push('/dashboard')
    }
 
   render() {
+      console.log(this.props)
       const {name, phone, email, balance, id} = this.state
     return (
             <div className="card bg-light text-dark">
@@ -95,4 +98,9 @@ import {updateClient} from '../../../actions/actionCreators'
   }
 }
 
-export default connect(null, {updateClient})(EditClient)
+EditClient.propTypes ={
+  client: PropTypes.object.isRequired,
+  updateClient: PropTypes.func.isRequired
+}
+
+export default withRouter(connect(null, {updateClient})(EditClient))
