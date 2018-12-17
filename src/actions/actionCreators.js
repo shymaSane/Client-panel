@@ -40,3 +40,8 @@ export const updateClient = (client, id) => () => {
         ...client
     })
 }
+
+export const deleteClient = (id) => () =>{
+    firebase.firestore().collection("dashboard").doc(id).delete()
+    .then(() => console.log('deleted'))
+}

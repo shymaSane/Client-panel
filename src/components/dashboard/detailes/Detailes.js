@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {getClient} from '../../../actions/actionCreators';
+import {getClient, deleteClient} from '../../../actions/actionCreators';
 import {Link} from 'react-router-dom';
 import ClientDetailes from './ClientDetailes';
 import EditClient from './EditClient';
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router";
+
 
 class Detailes extends Component {
-
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
-      }
 
     componentWillMount(){
         const {id} = this.props.match.params
         this.props.getClient(id)
     }
+
+    deleteCurrentClient = () =>{
+        const {id} = this.props.match.params
+        this.props.deleteClient(id)
+        this.props.history.push('/dashboard')
+    }
+
   render() {
     const {client} = this.props
     const {id} = this.props.match.params
@@ -30,8 +31,8 @@ class Detailes extends Component {
                 <div className="my-3 d-flex justify-content-between">
                     <Link to="/dashboard" className="text-dark"><i className="fas fa-backward text-warning"></i> <strong>Back</strong></Link>
                     <div>
-                        <Link className="btn btn-dark" role="button" to="/client/edit">EDIT</Link>
-                        <button className="btn btn-warning ">DELETE</button>
+                        <button className="btn btn-dark">EDIT</button>
+                        <button className="btn btn-warning" onClick={this.deleteCurrentClient}>DELETE</button>
                     </div>
                 </div>
                 <ClientDetailes client={client} id={id}/>
@@ -51,4 +52,4 @@ const mapStateToProps = (state) => ({
     client: state.client.client
 })
 
-export default withRouter(connect(mapStateToProps,{getClient})(Detailes))
+export default connect(mapStateToProps,{getClient, deleteClient})(Detailes)
