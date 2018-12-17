@@ -4,6 +4,7 @@ import {getClient} from '../../../actions/actionCreators';
 import {Link} from 'react-router-dom';
 import ClientDetailes from './ClientDetailes';
 import EditClient from './EditClient';
+import PropTypes from 'prop-types'
 
 class Detailes extends Component {
     componentWillMount(){
@@ -32,6 +33,10 @@ class Detailes extends Component {
       </div>
     )
   }
+}
+
+Detailes.propTypes = {
+    client: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({

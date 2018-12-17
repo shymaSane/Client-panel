@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class ClientDetailes extends Component {
 
@@ -23,6 +24,11 @@ class ClientDetailes extends Component {
     </div>
 )
   }
+}
+
+ClientDetailes.proptypes = {
+  client: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default ClientDetailes
