@@ -7,7 +7,7 @@ import About from './components/info/About';
 import NotFound from './components/info/NotFound';
 import Dashboard from './components/dashboard/Dashboard';
 import AddClient from './components/dashboard/AddClient';
-import Detailes from './components/dashboard/Detailes'
+import Detailes from './components/dashboard/detailes/Detailes'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import store from './store'
 import {Provider} from 'react-redux'
