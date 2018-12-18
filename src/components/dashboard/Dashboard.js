@@ -13,10 +13,10 @@ import {Link} from 'react-router-dom'
     render() {
          const {clients} = this.props
         return (
-            <div className="container my-md-5 mx-md-5 ">
+            <div className="container my-md-5 mx-md-5 d-flex justify-content-center">
             <div className = "col-md-8 col-sm-11">
                 <div className='row d-flex justify-content-between'>
-                    <h2 className="text-dark">Clients</h2>
+                    <h2 className="text-dark"><i className="fas fa-users text-warning"></i> Clients</h2>
                     <Link className="btn btn-dark my-1 px-5" role="button" to="/client/add">+ New</Link>
                 </div>
                 <div className="row">
