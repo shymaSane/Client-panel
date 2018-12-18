@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom'
  class Dashboard extends Component {
     componentWillMount(){
         this.props.getClients()
+
     }
     render() {
          const {clients} = this.props
@@ -26,7 +27,7 @@ import {Link} from 'react-router-dom'
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">balance</th>
+                                <th scope="col">balance $</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -41,8 +42,12 @@ import {Link} from 'react-router-dom'
                         </tbody>
                         <tbody>
                             <tr scope ="row">
+                                <th scope="col">#</th>
                                 <td colSpan="5" className= "text-danger">
-                                    <strong>TOTAL:</strong>
+                                    <strong>TOTAL:  <span className="text-success">{clients.reduce((acc, client) => {
+                                        acc += parseInt(client.balance)
+                                        return acc
+                                    }, 0)}$</span></strong>
                                 </td>
                             </tr>
                         </tbody>
