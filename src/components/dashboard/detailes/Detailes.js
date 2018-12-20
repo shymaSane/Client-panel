@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {getClient, deleteClient} from '../../../actions/actionCreators';
+// import {getClient, deleteClient} from '../../../actions/actionCreators';
 import {Link} from 'react-router-dom';
 import ClientDetailes from './ClientDetailes';
 import EditClient from './EditClient';
@@ -14,12 +14,12 @@ class Detailes extends Component {
 
     componentWillMount(){
         const {id} = this.props.match.params
-        this.props.getClient(id)
+        // this.props.getClient(id)
     }
 
     deleteCurrentClient = () =>{
         const {id} = this.props.match.params
-        this.props.deleteClient(id)
+        // this.props.deleteClient(id)
         this.props.history.push('/dashboard')
     }
 
@@ -62,4 +62,4 @@ const mapStateToProps = (state) => ({
     client: state.client.client
 })
 
-export default connect(mapStateToProps,{getClient, deleteClient})(Detailes)
+export default connect(mapStateToProps)(Detailes)

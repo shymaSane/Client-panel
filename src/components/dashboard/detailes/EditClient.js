@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {updateClient} from '../../../actions/actionCreators';
+// import {updateClient} from '../../../actions/actionCreators';
 import PropTypes from 'prop-types';
 import { withRouter } from "react-router";
 
@@ -47,7 +47,7 @@ import { withRouter } from "react-router";
     }
 
     //update firstore
-    this.props.updateClient(updatedClient, id)
+    // this.props.updateClient(updatedClient, id)
     //clean fields 
     this.setState({
       name: '',
@@ -99,7 +99,7 @@ import { withRouter } from "react-router";
 
 EditClient.propTypes ={
   client: PropTypes.object.isRequired,
-  updateClient: PropTypes.func.isRequired
+ 
 }
 
-export default withRouter(connect(null, {updateClient})(EditClient))
+export default withRouter(connect(null)(EditClient))

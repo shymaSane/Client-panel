@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {addClient} from '../../actions/actionCreators'
+// import {addClient} from '../../actions/actionCreators'
 
 class AddClient extends Component {
 
@@ -34,7 +34,7 @@ class AddClient extends Component {
     }
     console.log(client)
     //add client to firestore
-    this.props.addClient(client)
+    // this.props.addClient(client)
     //empty fileds
     //redirect to dashboard
     this.props.history.push('/dashboard');
@@ -81,4 +81,4 @@ class AddClient extends Component {
   }
 }
 
-export default connect(null, {addClient})( AddClient)
+export default connect(null)( AddClient)
