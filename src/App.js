@@ -10,45 +10,17 @@ import AddClient from './components/dashboard/AddClient';
 import Detailes from './components/dashboard/detailes/Detailes';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import store from './store'
+import store from './store'
 import {Provider} from 'react-redux'
 
-//firestore v3:
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import createReduxStore from './createReduxStore';
-import {createFirestoreInstance } from 'redux-firestore'
-import firebase from 'firebase';
-import 'firebase/firestore';
 
-// object containing Firebase config
-const fbConfig = {
-  apiKey: "AIzaSyC_q921fwMQroeV1y90A-6ceWGjsFxYx3Y",
-  authDomain: "client-panel-3e604.firebaseapp.com",
-  databaseURL: "https://client-panel-3e604.firebaseio.com",
-  projectId: "client-panel-3e604",
-  storageBucket: "client-panel-3e604.appspot.com",
-  messagingSenderId: "81863483064"
-} 
 
-const rrfConfig = { userProfile: 'users' } // react-redux-firebase config
 
-// Initialize firebase instance
-firebase.initializeApp(fbConfig)
-
-const store = createReduxStore()
-
-const rrfProps = {
-  firebase,
-  config: rrfConfig,
-  dispatch: store.dispatch,
-  createFirestoreInstance 
-}
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <ReactReduxFirebaseProvider {...rrfProps}>
           <Router>
             <div className="App">
               <Nav />
@@ -64,7 +36,6 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
-        </ReactReduxFirebaseProvider>
       </Provider>
     );
   }

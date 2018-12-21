@@ -63,16 +63,13 @@ import {Link} from 'react-router-dom';
     }
 }
 
-// Dashboard.propTypes = {
-//     clients: PropTypes.array.isRequired
-// };
 
    
 
 
 export default compose(
-    firestoreConnect(['dashboard']),
-    connect((state,porps) => ({
-        clients: state.firestore.ordered.dashboard
+    firestoreConnect([{collection: 'dashboard'}]), // or { collection: 'todos' }
+    connect((state) => ({
+      clients: state.firestore.ordered.dashboard
     }))
-)(Dashboard)
+   )(Dashboard)
