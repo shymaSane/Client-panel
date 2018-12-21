@@ -14,8 +14,8 @@ import {Link} from 'react-router-dom';
 
     }
     render() {
-         const {clients} = this.props
-         console.log(this.props)
+         const {clients} = this.state
+         console.log(this.state)
         return (
             <div className="container my-md-5 mx-md-5 d-flex justify-content-center">
             <div className = "col-md-8 col-sm-11">
@@ -68,8 +68,8 @@ import {Link} from 'react-router-dom';
 
 
 export default compose(
-    firestoreConnect([{collection: 'dashboard'}]), // or { collection: 'todos' }
+    firestoreConnect(['dashboard']), // or { collection: 'todos' }
     connect((state) => ({
-      clients: state.firestore.ordered.dashboard
+      clients: state.firestore.data.dashboard
     }))
    )(Dashboard)
