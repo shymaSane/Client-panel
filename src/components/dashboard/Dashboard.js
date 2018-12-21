@@ -9,13 +9,13 @@ import {Link} from 'react-router-dom';
 
 
  class Dashboard extends Component {
-    componentWillMount(){
-        // this.props.getClients()
+    // componentWillMount(){
+    //     // this.props.getClients()
 
-    }
+    // }
     render() {
-         const {clients} = this.state
-         console.log(this.state)
+         const {clients} = this.props
+         console.log(this.props)
         return (
             <div className="container my-md-5 mx-md-5 d-flex justify-content-center">
             <div className = "col-md-8 col-sm-11">
@@ -68,8 +68,8 @@ import {Link} from 'react-router-dom';
 
 
 export default compose(
-    firestoreConnect(['dashboard']), // or { collection: 'todos' }
-    connect((state) => ({
-      clients: state.firestore.data.dashboard
+    firestoreConnect([{collection: 'clients'}]), // or { collection: 'todos' }
+    connect((state, props) => ({
+      clients: state.firestore.data
     }))
    )(Dashboard)

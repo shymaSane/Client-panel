@@ -1,10 +1,6 @@
-import {combineReducers} from 'redux';
-import {firebaseReducer} from 'react-redux-firebase';
-import {firestoreReducer} from 'redux-firestore'
-import ClientReducers from './ClientReducers'
+// import {combineReducers} from 'redux';
+// import ClientReducers from './ClientReducers'
 
-export default combineReducers({
-    firebase: firebaseReducer,
-    firestore: firestoreReducer,
-    client: ClientReducers
-})
+// export default combineReducers({
+//     client: ClientReducers
+// })

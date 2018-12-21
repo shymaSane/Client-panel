@@ -1,25 +1,26 @@
-import {createStore, compose, combineReducers} from 'redux';
-import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase'
-import firebase from 'firebase'
-import { reduxFirestore, firestoreReducer } from 'redux-firestore' 
-import 'firebase/firestore' 
+import { createStore, combineReducers, compose } from 'redux';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
+import { reduxFirestore, firestoreReducer } from 'redux-firestore' ;
 
-
-//firebase config
-const firebaseConfig = {
-    apiKey: "AIzaSyC_q921fwMQroeV1y90A-6ceWGjsFxYx3Y",
-    authDomain: "client-panel-3e604.firebaseapp.com",
-    databaseURL: "https://client-panel-3e604.firebaseio.com",
-    projectId: "client-panel-3e604",
-    storageBucket: "client-panel-3e604.appspot.com",
-    messagingSenderId: "81863483064"
-}
 
 // react-redux-firebase config
 const rrfConfig = {
     userProfile: 'users',
     useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
 }
+
+//firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyDL_PVBXVdEP1TbAKbPQ3UrzkT6ZW-FIQA",
+    authDomain: "client-panel-eb7c4.firebaseapp.com",
+    databaseURL: "https://client-panel-eb7c4.firebaseio.com",
+    projectId: "client-panel-eb7c4",
+    storageBucket: "client-panel-eb7c4.appspot.com",
+    messagingSenderId: "393307131223"
+  }
+
 
 // Initialize firebase instance
 firebase.initializeApp(firebaseConfig)
@@ -31,9 +32,9 @@ const firestore = firebase.firestore()
 
 // Add reactReduxFirebase enhancer when making store creator
 const createStoreWithFirebase = compose(
-    reactReduxFirebase(firebase, rrfConfig), // firebase instance as first argument
-    reduxFirestore(firebase)
-)(createStore)
+    reduxFirestore(firebase),
+    reactReduxFirebase(firebase, rrfConfig)
+  )(createStore)
 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
