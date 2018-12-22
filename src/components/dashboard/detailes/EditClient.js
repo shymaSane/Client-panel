@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 // import {updateClient} from '../../../actions/actionCreators';
 import PropTypes from 'prop-types';
 import { withRouter } from "react-router";
+import {firestoreConnect} from 'react-redux-firebase'
 
  class EditClient extends Component {
     state ={
@@ -47,21 +48,21 @@ import { withRouter } from "react-router";
     }
 
     //update firstore
-    // this.props.updateClient(updatedClient, id)
+    this.props.firestore.update({collection: 'dashboard', doc: id}, updatedClient)
+    .then(() => this.props.history.push('/dashboard'))
     //clean fields 
-    this.setState({
-      name: '',
-      phone: '',
-      email: '',
-      balance: '',
-      id: ''
-    })
+    // this.setState({
+    //   name: '',
+    //   phone: '',
+    //   email: '',
+    //   balance: '',
+    //   id: ''
+    // })
     //redirect
-    this.props.history.push('/dashboard')
+    
    }
 
   render() {
-  
       const {name, phone, email, balance, id} = this.state
     return (
             <div className="card bg-light text-dark">
@@ -99,4 +100,4 @@ import { withRouter } from "react-router";
 
 
 
-export default withRouter(connect(null)(EditClient))
+export default firestoreConnect()(withRouter(EditClient))
