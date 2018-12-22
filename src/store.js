@@ -13,13 +13,13 @@ const rrfConfig = {
 
 //firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyDL_PVBXVdEP1TbAKbPQ3UrzkT6ZW-FIQA",
-    authDomain: "client-panel-eb7c4.firebaseapp.com",
-    databaseURL: "https://client-panel-eb7c4.firebaseio.com",
-    projectId: "client-panel-eb7c4",
-    storageBucket: "client-panel-eb7c4.appspot.com",
-    messagingSenderId: "393307131223"
-  }
+    apiKey: "AIzaSyC_q921fwMQroeV1y90A-6ceWGjsFxYx3Y",
+    authDomain: "client-panel-3e604.firebaseapp.com",
+    databaseURL: "https://client-panel-3e604.firebaseio.com",
+    projectId: "client-panel-3e604",
+    storageBucket: "client-panel-3e604.appspot.com",
+    messagingSenderId: "81863483064"
+  };
 
 
 // Initialize firebase instance
