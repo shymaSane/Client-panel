@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 // import {addClient} from '../../actions/actionCreators'
-
+import {firestoreConnect} from 'react-redux-firebase'
+ 
 class AddClient extends Component {
 
   state = {
     name: '',
     phone:'',
     email: '',
-    balance: 0
+    balance: '0'
   }
 
   //make the form writable
@@ -26,22 +27,24 @@ class AddClient extends Component {
     const {name, phone, email, balance} = this.state
 
     //object holding client info
-    const client = {
+    const newClient = {
       name,
       phone,
       email,
       balance
     }
-    console.log(client)
     //add client to firestore
-    // this.props.addClient(client)
-    //empty fileds
+    this.props.firestore.add({collection: 'dashboard'}, newClient)
     //redirect to dashboard
-    this.props.history.push('/dashboard');
+    .then(() => this.props.history.push('/dashboard') )
+    //empty fileds
+    
+    
   }
 
   render() {
     const {name, email, phone, balance} = this.state
+    
     return (
       <div className="container d-flex justify-content-center mt-5">
         <div className = "col-md-8 col-sm-11">
@@ -81,4 +84,4 @@ class AddClient extends Component {
   }
 }
 
-export default connect(null)( AddClient)
+export default firestoreConnect()( AddClient)

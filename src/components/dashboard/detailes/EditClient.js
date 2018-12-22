@@ -97,9 +97,6 @@ import { withRouter } from "react-router";
   }
 }
 
-EditClient.propTypes ={
-  client: PropTypes.object.isRequired,
- 
-}
+
 
 export default withRouter(connect(null)(EditClient))
