@@ -16,15 +16,10 @@ class Detailes extends Component {
         toggle: true
     }
 
-    componentWillMount(){
-        const {id} = this.props.match.params
-        // this.props.getClient(id)
-    }
-
     deleteCurrentClient = () =>{
         const {id} = this.props.match.params
-        // this.props.deleteClient(id)
-        this.props.history.push('/dashboard')
+        this.props.firestore.delete({collection: 'dashboard', doc: id})
+        .then(() => this.props.history.push('/dashboard'))
     }
 
     onToggle = () =>{
