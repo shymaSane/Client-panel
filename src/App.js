@@ -4,7 +4,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import Welcome from './components/info/Welcome';
 import About from './components/info/About';
-// import NotFound from './components/info/NotFound';
+import NotFound from './components/info/NotFound';
 import Dashboard from './components/dashboard/Dashboard';
 import AddClient from './components/dashboard/AddClient';
 import Detailes from './components/dashboard/detailes/Detailes';
@@ -32,7 +32,7 @@ class App extends Component {
                 <Route exact path='/dashboard' component={Dashboard} />
                 <Route exact path='/client/add' component={AddClient} />
                 <Route exact path='/client/detailes/:id' component={Detailes}/>
-                {/* <Route component={NotFound}/> */}
+                <Route component={NotFound}/>
               </Switch>
             </div>
           </Router>
