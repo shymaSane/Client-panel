@@ -15,11 +15,9 @@ class Nav extends Component{
   static getDerivedStateFromProps(nextProps, nextState){
     const {auth} = nextProps
     if(auth.uid){
-      nextState.isAuth = true
-      return nextState
+      return {isAuth: true}
     } else{
-      nextState.isAuth = false
-      return nextState
+      return {isAuth: false}
     }
  
   }
