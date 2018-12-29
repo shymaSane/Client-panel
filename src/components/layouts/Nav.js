@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom'
 import {firebaseConnect, firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
-import { userInfo } from 'os';
+import {withRouter} from 'react-router'
+
 
 class Nav extends Component{
   state = {
@@ -13,7 +14,6 @@ class Nav extends Component{
   
   static getDerivedStateFromProps(nextProps, nextState){
     const {auth} = nextProps
-    console.log(nextState)
     if(auth.uid){
       nextState.isAuth = true
       return nextState
@@ -25,11 +25,14 @@ class Nav extends Component{
   }
 
   logOut = () =>{
-    
+    const {firebase} = this.props
+    firebase.logout()
+    .then(() => this.props.history.push('/'))
+    .catch((err) => console.log(err))
   }
   
   render(){
-    
+  
     return (
       <nav className="navbar bg-dark navbar-dark navbar-expand-md">
         <div className="container">
@@ -59,8 +62,8 @@ class Nav extends Component{
               </li>
             </ul>
               {this.state.isAuth? <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <button className="btn btn-sm btn-warning" onclick={this.logOut}>Sign Out</button>
+                  <li className="nav-item" >
+                    <button className="btn btn-sm btn-warning"  onClick={this.logOut}>Sign Out</button>
                   </li>
                 </ul> :  <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
@@ -83,5 +86,5 @@ export default compose(
   connect((state, props) => ({
     auth: state.firebase.auth
   }))
-)(Nav)
+)(withRouter(Nav))
 

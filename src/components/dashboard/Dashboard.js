@@ -10,13 +10,8 @@ import Spinner from './Spinner'
 
 
  class Dashboard extends Component {
-    componentWillMount(){
-        // this.props.getClients()
-
-    }
     render() {
          const {clients} = this.props
-         console.log(this.props)
          if(clients){
             return (
             <div className="container my-md-5 mx-md-5 d-flex justify-content-center">
