@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {firebaseConnect, firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
+import { userInfo } from 'os';
 
 class Nav extends Component{
   state = {
@@ -12,14 +13,14 @@ class Nav extends Component{
   
   static getDerivedStateFromProps(nextProps, nextState){
     const {auth} = nextProps
-    console.log(auth)
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   if(user.uid){
-    //     return{isAuth: true}
-    //   } else {
-    //     return {isAuth: false}
-    //   }
-    // })
+    console.log(nextState)
+    if(auth.uid){
+      nextState.isAuth = true
+      return nextState
+    } else{
+      nextState.isAuth = false
+      return nextState
+    }
  
   }
 
