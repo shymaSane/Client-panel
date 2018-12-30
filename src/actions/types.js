@@ -1,0 +1,1 @@
+export const NOTIFY_MESSAGE = 'NOTIFY_MESSAGE'
