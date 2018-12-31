@@ -1,11 +1,11 @@
 import  {NOTIFY_MESSAGE} from '../actions/types'
 
-const initilaState = {
+const initialState = {
     message: null,
     message_type: null
 }
 
-export default (state=initilaState, action)=> {
+export default (state=initialState, action)=> {
     switch(action.type) {
         case NOTIFY_MESSAGE:
             return {
