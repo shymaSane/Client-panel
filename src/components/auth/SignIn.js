@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {firebaseConnect} from 'react-redux-firebase'
-
+import {firebaseConnect} from 'react-redux-firebase';
+import {connect} from 'react-redux';
+import {compose} from 'redux'
+import {notifyChange} from '../../actions/NotifyCreator'
 
 class SignIn extends Component {
 
@@ -20,8 +22,9 @@ class SignIn extends Component {
             email,
             password
         }).then(() => {
+            this.props.notifyChange({message: 'Logged In Successfuly!', message_type: 'success'})
             this.props.history.push('/dashboard')
-        }).catch((err) => alert('wrong email or password!'))
+        }).catch((err) => this.props.notifyChange({message: 'password or email wrong!', message_type: 'danger'}))
     }
 
   render() {
@@ -53,4 +56,7 @@ class SignIn extends Component {
   }
 }
 
-export default firebaseConnect()(SignIn)
+export default compose(
+    firebaseConnect(),
+    connect(null, {notifyChange})
+)(SignIn)

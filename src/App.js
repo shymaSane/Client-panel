@@ -8,10 +8,12 @@ import NotFound from './components/info/NotFound';
 import Dashboard from './components/dashboard/Dashboard';
 import AddClient from './components/dashboard/AddClient';
 import Detailes from './components/dashboard/detailes/Detailes';
+import Notify from './components/info/Notify'
 import {UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/protectRouting'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import store from './store'
 import {Provider} from 'react-redux'
+
 
 
 
@@ -24,6 +26,7 @@ class App extends Component {
           <Router>
             <div className="App">
               <Nav />
+              <Notify />
               <Switch>
                 <Route exact path='/' component={UserIsNotAuthenticated(Welcome)} />
                 <Route exact path='/users/signin' component={UserIsNotAuthenticated(SignIn)} />

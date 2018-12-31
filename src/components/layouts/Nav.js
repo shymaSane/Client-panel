@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {firebaseConnect, firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
+import {notifyChange} from '../../actions/NotifyCreator'
 import {withRouter} from 'react-router'
 
 
@@ -25,8 +26,11 @@ class Nav extends Component{
   logOut = () =>{
     const {firebase} = this.props
     firebase.logout()
-    .then(() => this.props.history.push('/'))
-    .catch((err) => console.log(err))
+    .then(() => {
+      this.props.notifyChange({message: 'Logged out Successfuly!', message_type: 'success'})
+      this.props.history.push('/')
+    })
+    .catch((err) => this.props.notifyChange({message: 'there is problem in logging out!', message_type: 'danger'}))
   }
   
   render(){
@@ -82,7 +86,10 @@ class Nav extends Component{
 export default compose(
   firestoreConnect(),
   connect((state, props) => ({
-    auth: state.firebase.auth
-  }))
+    auth: state.firebase.auth,
+    
+  }),
+   {notifyChange}
+  )
 )(withRouter(Nav))
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import {connect} from 'react-redux';
-// import {addClient} from '../../actions/actionCreators'
 import {firestoreConnect} from 'react-redux-firebase'
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {notifyChange} from '../../actions/NotifyCreator'
  
 class AddClient extends Component {
 
@@ -36,7 +37,11 @@ class AddClient extends Component {
     //add client to firestore
     this.props.firestore.add({collection: 'dashboard'}, newClient)
     //redirect to dashboard
-    .then(() => this.props.history.push('/dashboard') )
+    .then(() => {
+        this.props.notifyChange({message: 'client added successfuly', message_type: 'success'})
+        this.props.history.push('/dashboard') 
+    }).catch((err) => this.props.notifyChange({message: 'client added successfuly', message_type: 'success'})
+    )
     //empty fileds
     
     
@@ -84,4 +89,8 @@ class AddClient extends Component {
   }
 }
 
-export default firestoreConnect()( AddClient)
+export default compose(
+    firestoreConnect(),
+    connect(null, {notifyChange})
+)
+(AddClient)

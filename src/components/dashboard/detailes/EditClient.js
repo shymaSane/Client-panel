@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import {connect} from 'react-redux';
-// import {updateClient} from '../../../actions/actionCreators';
 import PropTypes from 'prop-types';
 import { withRouter } from "react-router";
-import {firestoreConnect} from 'react-redux-firebase'
+import {firestoreConnect} from 'react-redux-firebase';
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {notifyChange} from '../../../actions/NotifyCreator'
 
  class EditClient extends Component {
     state ={
@@ -49,17 +50,10 @@ import {firestoreConnect} from 'react-redux-firebase'
 
     //update firstore
     this.props.firestore.update({collection: 'dashboard', doc: id}, updatedClient)
-    .then(() => this.props.history.push('/dashboard'))
-    //clean fields 
-    // this.setState({
-    //   name: '',
-    //   phone: '',
-    //   email: '',
-    //   balance: '',
-    //   id: ''
-    // })
-    //redirect
-    
+    .then(() => {
+      this.props.notifyChange({message: 'client updated successfuly', message_type: 'success'})
+      this.props.history.push('/dashboard')
+    }).catch((err) => this.props.notifyChange({message: 'unable to update client', message_type: 'danger'}))
    }
 
   render() {
@@ -100,4 +94,8 @@ import {firestoreConnect} from 'react-redux-firebase'
 
 
 
-export default firestoreConnect()(withRouter(EditClient))
+export default compose(
+  firestoreConnect(),
+  connect(null, {notifyChange})
+)
+(withRouter(EditClient))
