@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import AddClient from './components/dashboard/AddClient';
 import Detailes from './components/dashboard/detailes/Detailes';
 import Notify from './components/info/Notify'
+import Settings from './components/dashboard/Settings'
 import {UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/protectRouting'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import store from './store'
@@ -35,6 +36,7 @@ class App extends Component {
                 <Route exact path='/dashboard' component={UserIsAuthenticated(Dashboard)} />
                 <Route exact path='/client/add' component={UserIsAuthenticated(AddClient)} />
                 <Route exact path='/client/detailes/:id' component={UserIsAuthenticated(Detailes)}/>
+                <Route exact path='/settings' component={UserIsAuthenticated(Settings)}/>
                 <Route component={NotFound}/>
               </Switch>
             </div>
