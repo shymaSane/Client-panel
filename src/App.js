@@ -29,10 +29,10 @@ class App extends Component {
               <Nav />
               <Notify />
               <Switch>
-                <Route exact path='/' component={UserIsNotAuthenticated(Welcome)} />
+                <Route exact path='/' component={Welcome} />
                 <Route exact path='/users/signin' component={UserIsNotAuthenticated(SignIn)} />
                 <Route exact path='/users/signup' component={UserIsNotAuthenticated(SignUp)} />
-                <Route exact path='/about' component={UserIsNotAuthenticated(About)} />
+                <Route exact path='/about' component={About} />
                 <Route exact path='/dashboard' component={UserIsAuthenticated(Dashboard)} />
                 <Route exact path='/client/add' component={UserIsAuthenticated(AddClient)} />
                 <Route exact path='/client/detailes/:id' component={UserIsAuthenticated(Detailes)}/>
