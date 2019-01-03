@@ -58,6 +58,7 @@ import {notifyChange} from '../../../actions/NotifyCreator'
 
   render() {
       const {name, phone, email, balance, id} = this.state
+      const {disable_balance} = this.props.settings
     return (
             <div className="card bg-light text-dark">
               <div className="card-body">
@@ -68,12 +69,20 @@ import {notifyChange} from '../../../actions/NotifyCreator'
                   <div className="form-row">
                       <div className="col-9 form-group">
                         <label htmlFor="id">ClientID:</label>
-                        <input type="text" className="form-control" name="id" value={id}></input>
+                        <input type="text" className="form-control" name="id" value={id} readOnly></input>
                       </div>
-                      <div className="col-3 form-group">
-                        <label htmlFor="balance">Balance:</label>
-                        <input type="text" className="form-control" name="balance" value={balance} onChange={this.onChange}></input>
-                      </div>
+                      {disable_balance ? 
+                        <div className="col-3 form-group">
+                          <label htmlFor="balance">Balance:</label>
+                          <input type="text" className="form-control" name="balance" value={balance} readOnly></input>
+                        </div>
+                        :
+                        <div className="col-3 form-group">
+                          <label htmlFor="balance">Balance:</label>
+                          <input type="text" className="form-control" name="balance" value={balance} onChange={this.onChange}></input>
+                        </div>
+                      }
+                      
                   </div>
                       <div className="form-group">
                           <label htmlFor="phone">Client Phone:</label>
@@ -96,6 +105,9 @@ import {notifyChange} from '../../../actions/NotifyCreator'
 
 export default compose(
   firestoreConnect(),
-  connect(null, {notifyChange})
+  connect( (state, props) => ({
+    settings: state.settings
+  }),
+  {notifyChange})
 )
 (withRouter(EditClient))

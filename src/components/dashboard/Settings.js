@@ -19,7 +19,7 @@ class Settings extends Component {
             <div className="card-body">
                 <form>
                     <div className="form-group my-2">
-                        <label htmlFor="balance">Disable Balance</label> {' '}   <input type="checkbox" name="disable_balance" checked={!!disable_balance} onChange={this.onAllowBalanceChange}></input>  
+                        <label htmlFor="balance">Disable Balance On Edit</label> {' '}   <input type="checkbox" name="disable_balance" checked={!!disable_balance} onChange={this.onAllowBalanceChange}></input>  
                     </div>
                     <div className="form-group my-2">
                         <label htmlFor="register">Disable Register</label> {' '} <input  type="checkbox" name="disable_register" checked={!!disable_register} onChange={this.onAllowRegisterChange}></input>
